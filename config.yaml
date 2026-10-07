@@ -1,0 +1,33 @@
+assetModel:
+  sourceOfTruth: cases
+  caseFilePattern: "{feature}.case.md"
+  caseIdPattern: "TC-{DOMAIN}-{FEATURE}-{NUMBER}"
+directories:
+  cases: cases
+  designs: designs
+  flows: flows
+  modules: modules
+  journeys: journeys
+  fixtures: fixtures
+  environments: env
+  generated: generated
+  artifacts: artifacts
+  executors:
+    api: executors/api
+    web: executors/web
+tags:
+  domains: [api, web, mobile]
+  scopes: [smoke, regression, e2e, special]
+  types: [positive, negative, boundary, exception]
+  priorities: [p0, p1, p2]
+  platforms: [web, api, android, ios]
+executors:
+  api:
+    runner: pytest
+    entry: scripts/api/run-suite.sh
+  web:
+    runner: playwright
+    entry: scripts/web/run-suite.sh
+  mobile:
+    runner: maestro
+    entry: scripts/maestro/run-suite.sh

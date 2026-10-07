@@ -1,0 +1,6 @@
+appId: ${APP_ID}
+name: TC-MOBILE-DEMO-101 未登录时无首页内容
+tags: [mobile, regression, negative, p2]
+---
+- launchApp
+- assertNotVisible: "AuthenticatedHomeOnly"

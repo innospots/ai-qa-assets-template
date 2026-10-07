@@ -1,0 +1,38 @@
+# test:flow 生成规则摘要（供 Agent / 脚本读取）
+# 完整规范见 references/
+
+one_case_one_main_flow: true
+main_flow_path: "flows/{domain}/{scene}/{case_id}.yaml"
+reusable_subflow_path: "modules/{domain}/{action}.yaml"
+data_path: "data/{domain}/*.js"
+
+platform_formats:
+  api_web_manifest:
+    required_fields: [executor, name, tags, test]
+    assertion_location: executors
+  mobile_maestro:
+    required_header: [appId, name, tags]
+    yaml_separator: "---"
+    min_assertions: 1
+
+forbidden:
+  - hardcoded_business_credentials
+  - optional_on_critical_steps
+  - when_visible_to_skip_expected_failure
+  - merge_multiple_cases_in_one_flow
+  - modify_case_intent_without_authorization
+
+selector_priority:
+  - accessibility_id
+  - stable_visible_text
+  - relational
+  - state
+  - index
+  - point_coordinate
+
+tag_mapping:
+  positive_smoke: [smoke, regression, positive]
+  negative_regression: [regression, negative]
+  special_exception: [special, exception]
+
+official_docs_index: references/source-index.md

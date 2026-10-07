@@ -1,0 +1,4 @@
+executor: web
+name: TC-WEB-HOME-101 访问不存在路径显示 404
+tags: [web, regression, negative, p1]
+test: executors/web/tests/test_home.py::test_tc_web_home_101

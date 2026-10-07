@@ -1,0 +1,4 @@
+executor: api
+name: TC-API-HEALTH-101 请求不存在路径返回 404
+tags: [api, regression, negative, p1]
+test: executors/api/tests/test_health.py::test_tc_api_health_101

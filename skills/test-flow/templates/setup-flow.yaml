@@ -1,0 +1,16 @@
+appId: ${APP_ID}
+name: setup-{domain}-{scene}
+tags:
+  - setup
+  - {domain}
+---
+# Setup Flow：环境/会话准备，不作为独立 Test Case 执行
+# 仅在被 onFlowStart 或 Journey 引用时使用
+
+- runScript: ../../../data/{domain}/users.js
+- runFlow: ../../../modules/app/launch-foreground.yaml
+- runFlow:
+    file: ../../../modules/auth/login.yaml
+    env:
+      USERNAME: ${output.auth.users.normal.username}
+      PASSWORD: ${output.auth.users.normal.password}

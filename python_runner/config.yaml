@@ -1,0 +1,6 @@
+# 移动端 Maestro 编排配置。路径可在 env 或 CI 中覆盖。
+# workspace 与报告目录由 scripts/maestro 传入；勿在此填写真实凭据。
+app_id: com.example.demo
+maestro_bin: maestro
+adb_bin: adb
+prelaunch_wait_seconds: 5

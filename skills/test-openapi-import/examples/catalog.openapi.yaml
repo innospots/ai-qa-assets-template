@@ -1,0 +1,27 @@
+openapi: 3.0.3
+info:
+  title: Catalog API
+  version: '1.0'
+paths:
+  /items/{itemId}:
+    parameters:
+      - name: itemId
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: getItem
+      summary: 读取商品
+      responses:
+        '200':
+          description: 返回商品
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+        '404':
+          description: 商品不存在

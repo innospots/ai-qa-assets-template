@@ -1,0 +1,65 @@
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+
+# Other files and folders
+.settings/
+
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
+*/__pycache__/
+__pycache__/
+*.py[cod]
+*$py.class
+eggs/
+.eggs/
+.idea/
+*.egg
+/.venv/
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.
+/.idea/
+
+# Test asset runtime output
+artifacts/logs/*
+!artifacts/logs/.gitkeep
+artifacts/reports/*
+!artifacts/reports/.gitkeep
+artifacts/screenshots/*
+!artifacts/screenshots/.gitkeep
+generated/docs/*
+!generated/docs/.gitkeep
+generated/reports/*
+!generated/reports/.gitkeep
+generated/openapi-drafts/
+
+# Local environment credentials
+.env
+*.env
+!*.env.example
+
+# Local tooling and generated files
+.vscode/
+.DS_Store
+*.log
+*.xml
+*.html
+*.mp4
+!fixtures/**/*.mp4
+!fixtures/**/*.wav
+!fixtures/**/*.m4a
+!fixtures/**/*.aac
+
+# Maestro local runtime output
+.maestro/.cache/
+artifacts/maestro/
+artifacts/api/
+artifacts/web/
+artifacts

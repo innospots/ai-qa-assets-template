@@ -1,0 +1,35 @@
+appId: ${APP_ID}
+name: TC-{DOMAIN}-{SCENE}-{NNN} {简短业务目的}
+tags:
+  - {domain}
+  - smoke
+  - regression
+  - positive
+  - p0
+---
+# 1. 加载本场景 data（按需）
+- runScript: ../../../data/{domain}/{business-object}.js
+
+# 2. 平台选择器（Android/iOS 差异时）
+- runFlow:
+    when:
+      platform: Android
+    commands:
+      - runScript: ../../../data/contracts/selectors/android.js
+- runFlow:
+    when:
+      platform: iOS
+    commands:
+      - runScript: ../../../data/contracts/selectors/ios.js
+
+# 3. 应用前置 / 导航 Module
+- runFlow: ../../../modules/app/launch-foreground.yaml
+
+# 4. 场景动作（runFlow.env 传 Module 参数）
+- runFlow:
+    file: ../../../modules/{domain}/{action}.yaml
+    env:
+      PARAM_A: ${output.{domain}.dataset.field}
+
+# 5. 关键预期 → Assertion（每个 Case 预期至少一条）
+- assertVisible: ${output.{domain}.expectedMarker}

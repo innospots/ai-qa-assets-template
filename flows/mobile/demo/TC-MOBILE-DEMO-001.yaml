@@ -1,0 +1,7 @@
+appId: ${APP_ID}
+name: TC-MOBILE-DEMO-001 启动应用
+tags: [mobile, smoke, positive, p1]
+---
+- runScript: ../../../data/mobile/selectors.js
+- launchApp
+- assertVisible: "${output.mobile.selectors.launchHint}"

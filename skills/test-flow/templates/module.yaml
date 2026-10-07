@@ -1,0 +1,14 @@
+appId: ${APP_ID}
+name: {业务动作简述，如：填写客户信息}
+---
+# Module = 可复用 Subflow；不含 Case 级最终结论
+# 调用方通过 runFlow.env 传入大写参数
+
+- extendedWaitUntil:
+    visible: ${REQUIRED_VISIBLE}
+    timeout: 15000
+
+- tapOn: ${TARGET_CONTROL}
+- inputText: ${INPUT_VALUE}
+
+# Module 可验证「自身动作完成」的必要状态，不断言 Case 最终业务结果

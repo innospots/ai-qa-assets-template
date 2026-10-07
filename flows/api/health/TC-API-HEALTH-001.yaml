@@ -1,0 +1,4 @@
+executor: api
+name: TC-API-HEALTH-001 GET 探测返回 2xx
+tags: [api, smoke, regression, positive, p0]
+test: executors/api/tests/test_health.py::test_tc_api_health_001

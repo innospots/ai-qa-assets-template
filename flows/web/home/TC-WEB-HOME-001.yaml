@@ -1,0 +1,4 @@
+executor: web
+name: TC-WEB-HOME-001 首页标题符合预期
+tags: [web, smoke, regression, positive, p0]
+test: executors/web/tests/test_home.py::test_tc_web_home_001
